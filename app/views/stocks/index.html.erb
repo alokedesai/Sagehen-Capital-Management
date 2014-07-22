@@ -1,0 +1,43 @@
+<%= render 'layouts/blue', :title=> "Current Holdings" %>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <th>
+        Ticker
+      </th>
+      <th>
+        Company Name
+      </th>
+      <th>
+        Last
+      </th>
+      <th>
+        Change
+      </th>
+    </thead>
+    <% @stocks.each do |stock| %>
+    <tr>
+      <td>
+        <%= stock.symbol %>
+      </td>
+      <td>
+        <%= stock.name %>
+      </td>
+      <td>
+        $<%= stock.last_trade_price_only %>
+      </td>
+      <td>
+        <% if stock.changein_percent.start_with? "+" %>
+          <span class="positive">
+            <%= stock.changein_percent %>
+          </span>
+        <% else %>
+        <span class="negative">
+          <%= stock.changein_percent %>
+        </span>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

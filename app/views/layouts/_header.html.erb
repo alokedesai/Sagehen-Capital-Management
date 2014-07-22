@@ -1,0 +1,46 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SCM</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">ABOUT <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">MISSION</a></li>
+            <li><a href="#">HISTORY</a></li>
+            <li><a href="#">INVESTMENT PHILOSOPHY</a></li>
+            <li><a href="#">CURRENT MANAGEMENT</a></li>
+            <li><a href="#">ALUMNI</a></li>
+            <li><a href="#">JOIN US</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">MARKET CONDITIONS <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">CURRENT HOLDINGS</a></li>
+            <li><a href="#">PORTFOLIO PERFORMANCE</a></li>
+          </ul>
+        </li>
+        <li><a href="#">MARKET INSIGHTS BLOG</a></li>
+        <li><a href="#">EVENTS</a></li>
+        <li><a href="#">RESOURCES</a></li>
+        <li><a href="#">RECRUITERS</a></li>
+        <li>
+          <% if current_user %>
+            <%= link_to "SIGNOUT", "/signout" %>
+          <% else %>
+            <%= link_to "LOGIN", "/auth/linkedin" %>
+          <% end %>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
