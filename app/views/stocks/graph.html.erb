@@ -1,36 +1,129 @@
-<div id="container" style="height: 400px; min-width: 310px"></div>
-<script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+<div class="container mtb">
+  <h1 id="load">Loading Data...</h1>
+  <div id="container" style="height: 400px; min-width: 310px"></div>
+</div>
 
 <script charset="utf-8">
   $(function() {
+  var seriesOptions = [],
+    yAxisOptions = [],
+    seriesCounter = 0;
 
-	$.getJSON('<%= dia_stocks_path %>', function(data) {
-		// Create the chart
+    $.getJSON('<%= dia_stocks_path %>',	function(data) {
+      seriesOptions[0] = {
+        name: "DIA",
+        data: data["quote"]
+      };
 
-		$('#container').highcharts('StockChart', {
+      // As we're loading the data asynchronously, we don't know what order it will arrive. So
+      // we keep a counter and create the chart when all the data is loaded.
+      seriesCounter++;
 
-			rangeSelector : {
-				selected : 1,
-				inputEnabled: $('#container').width() > 480
-			},
+      if (seriesCounter == 4) {
+        console.log("charts");
+        createChart();
+      }
+    });
 
-			title : {
-				text : 'AAPL Stock Price'
-			},
-      xAxis: {
-          type: 'datetime'
+    $.getJSON('<%= gspc_stocks_path %>',	function(data) {
+      seriesOptions[1] = {
+        name: name,
+        data: data["quote"]
+      };
+
+      // As we're loading the data asynchronously, we don't know what order it will arrive. So
+      // we keep a counter and create the chart when all the data is loaded.
+      seriesCounter++;
+
+      if (seriesCounter == 4) {
+        createChart();
+      }
+    });
+
+    $.getJSON('<%= ixic_stocks_path %>',	function(data) {
+      seriesOptions[2] = {
+        name: name,
+        data: data["quote"]
+      };
+
+      // As we're loading the data asynchronously, we don't know what order it will arrive. So
+      // we keep a counter and create the chart when all the data is loaded.
+      seriesCounter++;
+
+      if (seriesCounter == 4) {
+        createChart();
+      }
+    });
+
+    $.getJSON('<%= portfolio_data_stocks_path %>',	function(data) {
+      seriesOptions[3] = {
+        name: name,
+        data: data["quote"]
+      };
+
+      // As we're loading the data asynchronously, we don't know what order it will arrive. So
+      // we keep a counter and create the chart when all the data is loaded.
+      seriesCounter++;
+
+      if (seriesCounter == 4) {
+        createChart();
+      }
+    });
+    //
+    // $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=msft-c.json&callback=?',	function(data) {
+    //
+    //   seriesOptions[1] = {
+    //     name: name,
+    //     data: data
+    //   };
+    //
+    //   // As we're loading the data asynchronously, we don't know what order it will arrive. So
+    //   // we keep a counter and create the chart when all the data is loaded.
+    //   seriesCounter++;
+    //
+    //   if (seriesCounter == 2) {
+    //     createChart();
+    //   }
+    // });
+
+
+  // create the chart when all data is loaded
+  function createChart() {
+    $("#load").remove();
+    $('#container').highcharts('StockChart', {
+
+        rangeSelector: {
+        inputEnabled: $('#container').width() > 480,
+            selected: 4
         },
 
-			series : [{
-				name : 'AAPL',
-				data : data["quote"],
-				tooltip: {
-					valueDecimals: 2
-				}
-			}]
-		});
-	});
+        yAxis: {
+          labels: {
+            formatter: function() {
+              return (this.value > 0 ? '+' : '') + this.value + '%';
+            }
+          },
+          plotLines: [{
+            value: 0,
+            width: 2,
+            color: 'silver'
+          }]
+        },
+
+        plotOptions: {
+          series: {
+            compare: 'percent'
+          }
+        },
+
+        tooltip: {
+          pointFormat: '<span style="color:{series.color}">Stock</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+          valueDecimals: 2
+        },
+
+        series: seriesOptions
+    });
+  }
 
 });
-
 </script>

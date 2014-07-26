@@ -6,6 +6,7 @@ Scm::Application.routes.draw do
       get "dia"
       get "ixic"
       get "graph"
+      get "portfolio_data"
     end
   end
   # linkedin authentication
