@@ -12,11 +12,11 @@
     <div class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">ABOUT <b class="caret"></b></a>
+          <a href="<%=  %>" class="dropdown-toggle" data-toggle="dropdown">ABOUT <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">MISSION</a></li>
-            <li><a href="#">HISTORY</a></li>
-            <li><a href="#">INVESTMENT PHILOSOPHY</a></li>
+            <li><%= link_to "MISSION", mission_path %></li>
+            <li><%= link_to "HISTORY", history_path %></li>
+            <li><%= link_to "INVESTMENT PHILOSOPHY", investment_philosophy_path %></li>
             <li><a href="#">CURRENT MANAGEMENT</a></li>
             <li><a href="#">ALUMNI</a></li>
             <li><a href="#">JOIN US</a></li>
@@ -25,8 +25,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">MARKET CONDITIONS <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">CURRENT HOLDINGS</a></li>
-            <li><a href="#">PORTFOLIO PERFORMANCE</a></li>
+            <li><%= link_to "CURRENT HOLDINGS", stocks_path %></li>
+            <li><%= link_to "PORTFOLIO PERFORMANCE", graph_stocks_path %></li>
           </ul>
         </li>
         <li><a href="#">MARKET INSIGHTS BLOG</a></li>
