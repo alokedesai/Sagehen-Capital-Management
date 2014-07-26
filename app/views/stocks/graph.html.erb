@@ -7,85 +7,28 @@
   $(function() {
   var seriesOptions = [],
     yAxisOptions = [],
-    seriesCounter = 0;
+    seriesCounter = 0,
+    comparisons = [{ticker: "dia", title:"Dow Jones Industrial Average"},{ticker: "gspc", title:"S&P 500"}, {ticker: "ixic", title:"NASDAQ"}, {ticker: "portfolio_data", title: "Portfolio"}]
+    colors = Highcharts.getOptions().colors;
 
-    $.getJSON('<%= dia_stocks_path %>',	function(data) {
-      seriesOptions[0] = {
-        name: "DIA",
-        data: data["quote"]
-      };
+    $.each(comparisons, function(i, index) {
+      console.log(index.ticker);
+      $.getJSON('/stocks/' + index.ticker ,	function(data) {
+        seriesOptions[i] = {
+          name: index.title,
+          data: data["quote"]
+        };
 
-      // As we're loading the data asynchronously, we don't know what order it will arrive. So
-      // we keep a counter and create the chart when all the data is loaded.
-      seriesCounter++;
+        // As we're loading the data asynchronously, we don't know what order it will arrive. So
+        // we keep a counter and create the chart when all the data is loaded.
+        seriesCounter++;
 
-      if (seriesCounter == 4) {
-        console.log("charts");
-        createChart();
-      }
+        if (seriesCounter == comparisons.length) {
+          console.log("charts");
+          createChart();
+        }
+      });
     });
-
-    $.getJSON('<%= gspc_stocks_path %>',	function(data) {
-      seriesOptions[1] = {
-        name: name,
-        data: data["quote"]
-      };
-
-      // As we're loading the data asynchronously, we don't know what order it will arrive. So
-      // we keep a counter and create the chart when all the data is loaded.
-      seriesCounter++;
-
-      if (seriesCounter == 4) {
-        createChart();
-      }
-    });
-
-    $.getJSON('<%= ixic_stocks_path %>',	function(data) {
-      seriesOptions[2] = {
-        name: name,
-        data: data["quote"]
-      };
-
-      // As we're loading the data asynchronously, we don't know what order it will arrive. So
-      // we keep a counter and create the chart when all the data is loaded.
-      seriesCounter++;
-
-      if (seriesCounter == 4) {
-        createChart();
-      }
-    });
-
-    $.getJSON('<%= portfolio_data_stocks_path %>',	function(data) {
-      seriesOptions[3] = {
-        name: name,
-        data: data["quote"]
-      };
-
-      // As we're loading the data asynchronously, we don't know what order it will arrive. So
-      // we keep a counter and create the chart when all the data is loaded.
-      seriesCounter++;
-
-      if (seriesCounter == 4) {
-        createChart();
-      }
-    });
-    //
-    // $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=msft-c.json&callback=?',	function(data) {
-    //
-    //   seriesOptions[1] = {
-    //     name: name,
-    //     data: data
-    //   };
-    //
-    //   // As we're loading the data asynchronously, we don't know what order it will arrive. So
-    //   // we keep a counter and create the chart when all the data is loaded.
-    //   seriesCounter++;
-    //
-    //   if (seriesCounter == 2) {
-    //     createChart();
-    //   }
-    // });
-
 
   // create the chart when all data is loaded
   function createChart() {
@@ -117,7 +60,7 @@
         },
 
         tooltip: {
-          pointFormat: '<span style="color:{series.color}">Stock</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+          pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
           valueDecimals: 2
         },
 
