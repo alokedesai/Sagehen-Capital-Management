@@ -28,5 +28,8 @@ Scm::Application.routes.draw do
     get "investment_philosophy" => "about#investment_philosophy"
   end
 
+  # only show the current resources on the front end site--a different controller handles the backend
   resources :resources, only: [:index]
+
+  resources :recruiters, only: [:new, :create]
 end
