@@ -32,4 +32,6 @@ Scm::Application.routes.draw do
   resources :resources, only: [:index]
 
   resources :recruiters, only: [:new, :create]
+
+  get "/market-insights" => "posts#index"
 end
