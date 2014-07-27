@@ -41,3 +41,6 @@ gem 'pry'
 
 # To get stock info for market conditions page
 gem 'stock_quote'
+
+# To embed slideshare info from the url
+gem "httparty"

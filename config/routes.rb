@@ -27,4 +27,6 @@ Scm::Application.routes.draw do
     get "history" => "about#history"
     get "investment_philosophy" => "about#investment_philosophy"
   end
+
+  resources :resources, only: [:index]
 end

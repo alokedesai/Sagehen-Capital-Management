@@ -1,0 +1,9 @@
+<%= render 'layouts/blue', :title=> "Resources" %>
+<div class="container mtb">
+  <div class="row">
+      <% @resources.each do |resource| %>
+        <h3><%= link_to resource.title, resource.url %></h3>
+        <%== resource.slideshare_html %>
+      <% end %>
+  </div>
+</div>
