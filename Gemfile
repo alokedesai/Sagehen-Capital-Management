@@ -44,3 +44,5 @@ gem 'stock_quote'
 
 # To embed slideshare info from the url
 gem "httparty"
+
+gem 'rails_12factor', group: :production
