@@ -30,6 +30,6 @@ Scm::Application.routes.draw do
 
   resources :resources, only: [:index]
   resources :recruiters, only: [:new, :create]
-  resources [:posts], only [:index, :show], :as "market-insights"
+  resources :posts, only: [:index, :show], :path=> "market-insights"
 
 end
