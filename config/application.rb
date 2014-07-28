@@ -6,12 +6,12 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# set time zone to pacific time
-config.time_zone = 'Pacific Time (US & Canada)'
-config.active_record.default_timezone = 'Pacific Time (US & Canada)'
-
 module Scm
   class Application < Rails::Application
+    # set time zone to pacific time
+    config.time_zone = 'Pacific Time (US & Canada)'
+    config.active_record.default_timezone = 'Pacific Time (US & Canada)'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
