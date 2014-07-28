@@ -1,8 +1,8 @@
 <%= render 'layouts/blue', :title=> "Market Insights" %>
 <div class="container">
   <% @posts.each do |post| %>
-    <h2><%= post.title %></h2>
-    Posted on <%= post.created_at %> by <%= post.user.name %>
+    <h2><%= link_to post.title, post %></h2>
+    Posted on <%= post.readable_created_at %> by <%= post.user.name %>
     <p>
       <%= post.content %>
     </p>
