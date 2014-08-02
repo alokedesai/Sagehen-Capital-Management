@@ -1,3 +1,3 @@
 class Stock < ActiveRecord::Base
-  validate :ticker, :presence=> true
+  validates :ticker, :presence=> true
 end

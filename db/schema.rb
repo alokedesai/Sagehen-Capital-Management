@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728000900) do
+ActiveRecord::Schema.define(version: 20140802230933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_presentation_attributes_to_posts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "alums", force: true do |t|
     t.string   "linkedin_url"
@@ -29,13 +34,38 @@ ActiveRecord::Schema.define(version: 20140728000900) do
     t.string   "name"
   end
 
+  create_table "ckeditor_assets", force: true do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.string   "ticker"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "type"
+  end
+
+  create_table "presentations", force: true do |t|
+    t.string   "ticker"
+    t.string   "action"
+    t.text     "thesis"
+    t.string   "slideshare_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "recruiters", force: true do |t|
@@ -43,6 +73,11 @@ ActiveRecord::Schema.define(version: 20140728000900) do
     t.string   "email"
     t.string   "company"
     t.string   "interest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "remove_attributes_from_presentations", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,6 +112,7 @@ ActiveRecord::Schema.define(version: 20140728000900) do
     t.datetime "updated_at"
     t.string   "image_url"
     t.string   "linkedin_id"
+    t.boolean  "approved"
   end
 
 end

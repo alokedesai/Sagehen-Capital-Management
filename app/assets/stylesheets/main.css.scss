@@ -2,6 +2,6 @@
 .alert-error {
   @extend .alert-danger;
 }
-.alert-notice {
+.alert-notice, {
   @extend .alert-success;
 }

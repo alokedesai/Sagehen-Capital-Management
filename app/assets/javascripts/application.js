@@ -17,3 +17,4 @@
 //= require_tree ./solid
 //= require_tree .
 //= require_tree ./highstock
+//= require ckeditor/init

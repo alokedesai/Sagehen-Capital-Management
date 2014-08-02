@@ -43,6 +43,12 @@ gem 'pry'
 gem 'stock_quote'
 
 # To embed slideshare info from the url
-gem "httparty"
+gem 'httparty'
 
 gem 'rails_12factor', group: :production
+
+gem 'ckeditor'
+
+# For uploading ckeditor pictures. For now, we're using s3
+gem 'paperclip'
+gem 'aws-sdk'

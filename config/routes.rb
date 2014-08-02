@@ -1,4 +1,5 @@
 Scm::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   resources :users
   resources :stocks do
     collection do
@@ -16,8 +17,11 @@ Scm::Application.routes.draw do
 
   root 'users#index'
 
-  scope "/admin" do
+  namespace :admin do
     resources :alums
+    resources :stocks
+    resources :resources
+    resources :posts
   end
 
   # about
