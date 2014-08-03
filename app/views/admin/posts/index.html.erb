@@ -1,0 +1,20 @@
+<%= render 'admin/layouts/header' %>
+<div class="container mtb">
+  <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+  <% end %>
+
+  <h1>Posts</h1>
+  <%= link_to "New", new_admin_post_path, :class=> "btn btn-theme" %>
+  <% @posts.each do |post| %>
+    <div>
+      <h2><%= link_to post.title, admin_post_path(post) %></h2>
+      Posted on <%= post.readable_created_at %> by <%= post.user.name %>
+      <p>
+        <%== post.content[0,200] %>
+      </p>
+        <%= link_to "Edit" , edit_admin_post_path(post), :class=> "btn btn-default" %>
+        <%= link_to "Delete", admin_post_path(post), :method=> :delete, :confirm=> "Are you sure you want to delete this resource?", :class=> "btn btn-danger" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,27 @@
+<%= render 'admin/layouts/header' %>
+<div class="container mtb">
+  <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+  <% end %>
+
+  <h1><%= @user.name %>'s Profile</h1>
+  <div>
+    <p>
+      <strong>Major:</strong>
+      <%= @user.major %>
+    </p>
+    <p>
+      <strong>Graduation Year:</strong>
+      <%= @user.grad_year %>
+    </p>
+    <p>
+      <strong>Title:</strong>
+      <%= @user.title %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @user.description %>
+    </p>
+  </div>
+  <%= link_to :Edit, edit_admin_user_path(@user), :class=> "btn btn-default" %>
+</div>

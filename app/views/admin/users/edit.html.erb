@@ -1,0 +1,31 @@
+<%= render 'admin/layouts/header' %>
+<div class="container mtb">
+  <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+  <% end %>
+
+    <h1>Edit Profile</h1>
+    <%= form_for [:admin, @user], :html=> {:role=>"form"} do |f| %>
+      <div class="form-group">
+        <%= f.label "Major" %>
+        <%= f.text_field :major, :class=> "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Graduation Year" %>
+        <%= f.number_field :grad_year, :in=>(Date.current.year)..(Date.current.year+5), :class=> "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Title" %>
+        <%= f.text_field :title, :class=> "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Description" %>
+        <%= f.text_area :description, :class=> "form-control" %>
+      </div>
+
+      <%= f.submit :class=> "btn btn-theme" %>
+    <% end %>
+</div>

@@ -1,0 +1,33 @@
+<%= render 'admin/layouts/header' %>
+<div class="container mtb">
+  <h1><%= @stock.ticker %></h1>
+  <div>
+    <strong># of Shares: </strong>
+    <% if @stock.share_count %>
+      <%= @stock.share_count %>
+    <% else %>
+      --
+    <% end %>
+  </div>
+  <div>
+    <strong>Purchase Date: </strong>
+    <% if @stock.purchase_date %>
+      <%= @stock.purchase_date %>
+    <% else %>
+      --
+    <% end %>
+  </div>
+  <div>
+    <strong>Purchase Price: </strong>
+    <% if @stock.purchase_price %>
+      $<%= @stock.purchase_price %>
+    <% else %>
+      --
+    <% end %>
+  </div>
+  <div style="margin-top: 15px;">
+
+  </div>
+  <%= link_to "Update", edit_admin_stock_path(@stock), :class=> "btn btn-sm btn-default" %>
+  <%= link_to "Delete", @stock, :method=> :delete, :confirm=> "Are you sure you want to delete this stock?", :class=> "btn btn-sm btn-danger" %>
+</div>

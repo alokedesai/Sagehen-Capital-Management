@@ -1,0 +1,7 @@
+<%= render "admin/layouts/header" %>
+<div class="container mtb">
+  <h1><%= @post.title %></h1>
+  Posted on <%= @post.readable_created_at %> by <%= @post.user.name %>
+
+  <%== @post.content %>
+</div>

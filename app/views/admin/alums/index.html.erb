@@ -1,0 +1,28 @@
+<%= render 'admin/layouts/header' %>
+<div class="container mtb">
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+  <% end %>
+  <h1>Alumni</h1>
+  <% @alums_by_year.each do |alums| %>
+    <h2><%= alums.first.grad_year %></h2>
+
+    <% alums.each do |alum| %>
+      <% if alum.linkedin_url.present? %>
+        <h4><%= link_to alum.name, alum.linkedin_url %></h4>
+      <% else %>
+        <h4><%= alum.name %></h4>
+      <% end %>
+      <p>
+        <% if alum.company.present? %>
+        <strong>Currently works as <%= alum.job_title %> at <%= alum.company %> in <%= alum.location %></strong>
+        <% end %>
+      </p>
+      <p>
+        <%= alum.bio %>
+      </p>
+      <%= link_to "Edit", edit_admin_alum_path(alum), :class=>"btn btn-default" %>
+      <%= link_to "Delete", admin_alum_path(alum), :method=> :delete, :confirm=> "Are you sure you want to delete this alum?", :class=> "btn btn-danger" %>
+    <% end %>
+  <% end %>
+</div> <!-- /container -->
