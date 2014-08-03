@@ -35,4 +35,6 @@ Scm::Application.configure do
       :bucket => 'sagehencapitalmanagement'
     }
   }
+
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 end

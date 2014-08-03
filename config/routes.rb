@@ -10,6 +10,7 @@ Scm::Application.routes.draw do
       get "portfolio_data"
     end
   end
+  resources :events, only: [:index]
   # linkedin authentication
   get 'auth/:provider/callback' => 'sessions#create'
   get 'auth/failure' => redirect('/')
@@ -18,10 +19,11 @@ Scm::Application.routes.draw do
   root 'users#index'
 
   namespace :admin do
-    resources :alums
+    resources :alums, except: [:show]
     resources :stocks
     resources :resources
     resources :posts
+    resources :users, only: [:show, :edit, :update, :destroy]
   end
 
   # about

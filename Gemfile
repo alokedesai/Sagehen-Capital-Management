@@ -52,3 +52,5 @@ gem 'ckeditor'
 # For uploading ckeditor pictures. For now, we're using s3
 gem 'paperclip'
 gem 'aws-sdk'
+
+gem "font-awesome-rails"
