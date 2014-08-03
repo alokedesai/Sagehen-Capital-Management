@@ -1,4 +1,4 @@
-class AddPresentationAttributesToPosts < ActiveRecord::Migration
+class AddPresentationAttributesToPosts < ActiveRecord::Base
   def change
     add_column :presentations, :ticker, :string
     add_column :presentations, :action, :string
