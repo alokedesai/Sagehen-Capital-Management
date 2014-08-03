@@ -7,7 +7,7 @@ class Ckeditor::AttachmentFile < Ckeditor::Asset
                     :s3_credentials => "#{Rails.root}/config/aws.yml",
                     :bucket => 'sagehencapitalmanagement'
 
-  validates_attachment_presence :data
+  # validates_attachment_presence :data
   validates_attachment_size :data, :less_than => 100.megabytes
   do_not_validate_attachment_file_type :data
 
