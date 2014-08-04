@@ -11,7 +11,7 @@
       <h2><%= link_to post.title, admin_post_path(post) %></h2>
       Posted on <%= post.readable_created_at %> by <%= post.user.name %>
       <p>
-        <%== post.content[0,200] %>
+        <%== post.content %>
       </p>
         <%= link_to "Edit" , edit_admin_post_path(post), :class=> "btn btn-default" %>
         <%= link_to "Delete", admin_post_path(post), :method=> :delete, :confirm=> "Are you sure you want to delete this resource?", :class=> "btn btn-danger" %>
