@@ -3,7 +3,5 @@
 <div class="container">
   <h2><%= @post.title %></h2>
   Posted on <%= @post.readable_created_at %> by <%= @post.user.name %>
-  <p>
-    <%= @post.content %>
-  </p>
+  <%== @post.content %>
 </div>
