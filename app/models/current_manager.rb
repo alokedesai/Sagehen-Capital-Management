@@ -1,4 +1,4 @@
-class CurrentManagement < ActiveRecord::Base
+class CurrentManager < ActiveRecord::Base
   belongs_to :user
 
   validates :title, presence: true

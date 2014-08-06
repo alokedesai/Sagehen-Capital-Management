@@ -1,14 +1,14 @@
-class Admin::CurrentManagementController < Admin::AdminController
+class Admin::CurrentManagersController < Admin::AdminController
   def index
-    @current_managers = CurrentManagement.all
+    @current_managers = CurrentManager.all
   end
 
   def new
-    @current_manager = CurrentManagement.new
+    @current_manager = CurrentManager.new
   end
 
   def create
-    @current_manager = CurrentManagement.new current_managers_param
+    @current_manager = CurrentManager.new current_managers_param
     if @current_manager.valid?
       @current_manager.save
       redirect_to admin_current_managers_path
