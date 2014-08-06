@@ -1,10 +1,10 @@
-class Admin::CurrentManagersController < Admin::AdminController
+class Admin::CurrentManagementController < Admin::AdminController
   def index
     @current_managers = CurrentManagement.all
   end
 
   def new
-    @current_manger = CurrentManagement.new
+    @current_manager = CurrentManagement.new
   end
 
   def create
@@ -17,7 +17,7 @@ class Admin::CurrentManagersController < Admin::AdminController
       redirect_to :back
     end
   end
-  
+
   private
   def current_managers_param
     params.require(:user).permit(:title, :is_vp, :user_id)

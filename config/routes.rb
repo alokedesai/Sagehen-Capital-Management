@@ -24,7 +24,7 @@ Scm::Application.routes.draw do
     resources :resources
     resources :posts
     resources :users, only: [:show, :edit, :update, :destroy]
-    resources :current_managers
+    resources :current_management, :path => 'current_managers'
   end
 
   # about

@@ -1,0 +1,46 @@
+<%= render 'admin/layouts/header' %>
+<div class="container mtb">
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+  <% end %>
+  <h1>Current Management</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          Vice President?
+        </th>
+        <th>
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @current_managers.each do |manager| %>
+        <tr>
+          <td>
+            <%= manager.user.name %>
+          </td>
+          <td>
+            <%= manager.title %>
+          </td>
+          <td>
+            <%= manager.is_vp %>
+          </td>
+          <td>
+            <td>
+              <%= link_to "Update", edit_admin_current_manager_path(current_manager), :class=> "btn btn-default" %>
+              <%= link_to "Delete", admin_current_manager_path(current_manager), :method=> :delete, :confirm=> "Are you sure you want to delete this manager?", :class=> "btn btn-danger" %>
+            </td>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div> <!-- /container -->

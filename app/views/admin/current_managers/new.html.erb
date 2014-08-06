@@ -1,0 +1,9 @@
+<%= render 'admin/layouts/header' %>
+<div class="container mtb">
+  <h1>New Manager</h1>
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+  <% end %>
+  <%= render "form" %>
+
+</div>
