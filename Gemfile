@@ -54,5 +54,3 @@ gem 'paperclip'
 gem 'aws-sdk'
 
 gem "font-awesome-rails"
-
-ruby '2.1.2'

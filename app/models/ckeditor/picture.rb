@@ -4,7 +4,9 @@ class Ckeditor::Picture < Ckeditor::Asset
                     :path => "/ckeditor_assets/pictures/:id/:style_:basename.:extension",
                       :styles => { :content => '800>', :thumb => '118x100#' },
                       :storage => :s3,
-                    :s3_credentials => "#{Rails.root}/config/aws.yml",
+                    :s3_credentials =>
+                      { :access_key_id  => ENV['S3_KEY'],
+                      :secret_access_key => ENV['S3_SECRET'] },
                     :bucket => 'sagehencapitalmanagement'
 
 
