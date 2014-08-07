@@ -1,0 +1,12 @@
+<%= render "admin/layouts/header" %>
+<div class="container mtb">
+  <h1><%= @current_manager.user.name %></h1>
+  <p>
+    <strong>Title:</strong>
+    <%= @current_manager.title %>
+  </p>
+  <p>
+    <strong>Vice President:</strong>
+    <%= @current_manager.is_vp ? "Yes" : "No" %>
+  </p>
+</div>
