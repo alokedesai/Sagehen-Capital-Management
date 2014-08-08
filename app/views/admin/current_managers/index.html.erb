@@ -4,6 +4,7 @@
       <%= content_tag :div, msg, class: "alert alert-#{name}" %>
   <% end %>
   <h1>Current Management</h1>
+  <%= link_to "New", new_admin_current_manager_path, :class=>"btn btn-theme" %>
   <table class="table">
     <thead>
       <tr>
@@ -15,6 +16,9 @@
         </th>
         <th>
           Vice President?
+        </th>
+        <th>
+          Position
         </th>
         <th>
           Actions
@@ -32,6 +36,9 @@
           </td>
           <td>
             <%= manager.is_vp ? "Yes" : "No" %>
+          </td>
+          <td>
+            <%= manager.position_order %>
           </td>
           <td>
             <%= link_to "Update", edit_admin_current_manager_path(manager), :class=> "btn btn-default" %>

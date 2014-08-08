@@ -1,4 +1,6 @@
+$grid-float-breakpoint: 1000px;
 @import "bootstrap";
+
 .alert-error {
   @extend .alert-danger;
 }

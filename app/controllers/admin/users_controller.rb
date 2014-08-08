@@ -20,6 +20,9 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def approve
+    @users = Users.where.not(approved: true)
+  end
   private
   def user_params
     params.require(:user).permit(:name, :major, :grad_year, :description, :title)

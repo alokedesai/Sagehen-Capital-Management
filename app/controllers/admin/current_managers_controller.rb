@@ -1,6 +1,6 @@
 class Admin::CurrentManagersController < Admin::AdminController
   def index
-    @current_managers = CurrentManager.all
+    @current_managers = CurrentManager.all.order "position_order DESC"
   end
 
   def new
@@ -46,6 +46,6 @@ class Admin::CurrentManagersController < Admin::AdminController
 
   private
   def current_manager_params
-    params.require(:current_manager).permit(:title, :is_vp, :user_id)
+    params.require(:current_manager).permit(:title, :is_vp, :user_id, :position_order)
   end
 end

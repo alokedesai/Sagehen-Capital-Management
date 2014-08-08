@@ -4,6 +4,7 @@
       <%= content_tag :div, msg, class: "alert alert-#{name}" %>
   <% end %>
   <h1>Alumni</h1>
+  <%= link_to "New", new_admin_alum_path, :class=>"btn btn-theme" %>
   <% @alums_by_year.each do |alums| %>
     <h2><%= alums.first.grad_year %></h2>
 

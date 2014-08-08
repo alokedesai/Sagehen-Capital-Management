@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">SCM-ADMIN</a>
+      <%= link_to "SCM-ADMIN", admin_stocks_path, :class=> "navbar-brand" %>
     </div>
     <div class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
@@ -32,6 +32,7 @@
             </li>
             <li><%= link_to "LIVE SITE", root_path %></li>
             <li><a href="#">RECRUITER CONTACTS</a></li>
+            <li><%= link_to "CURRENT MANAGEMENT", admin_current_managers_path %></li>
           </ul>
         </li>
       </ul>
