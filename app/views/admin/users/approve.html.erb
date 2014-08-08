@@ -1,0 +1,26 @@
+<%= render 'admin/layouts/header' %>
+<div class="container mtb">
+  <h1>Unnapproved Members</h1>
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+  <% end %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Linkedin URL</th>
+        <th>Approve</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= link_to user.linkedin_url, user.linkedin_url %></td>
+          <td><%= link_to "Approve", approve_user_admin_users_path(:id=> user.id), :method=> :put, :class=> "btn btn-default" %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

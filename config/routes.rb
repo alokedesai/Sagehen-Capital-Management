@@ -23,7 +23,12 @@ Scm::Application.routes.draw do
     resources :stocks
     resources :resources
     resources :posts
-    resources :users, only: [:show, :edit, :update, :destroy]
+    resources :users, only: [:show, :edit, :update, :destroy] do
+      collection do
+        get :approve
+        put :approve_user
+      end
+    end
     resources :current_managers
   end
 

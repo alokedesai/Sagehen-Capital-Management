@@ -21,7 +21,15 @@ class Admin::UsersController < ApplicationController
   end
 
   def approve
-    @users = Users.where.not(approved: true)
+    # approved could be false or nil
+    @users = User.where.not(approved: true)
+  end
+
+  def approve_user
+    user = User.find params[:id]
+    user.update_attributes :approved => true
+    flash[:notice] = "User successfully added"
+    redirect_to approve_admin_users_path
   end
   private
   def user_params
