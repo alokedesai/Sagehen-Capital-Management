@@ -17,6 +17,7 @@
       </th>
     </thead>
     <% @stocks.each do |stock| %>
+      <% next if stock.response_code != 200 %>
     <tr>
       <td>
         <%= stock.symbol %>
