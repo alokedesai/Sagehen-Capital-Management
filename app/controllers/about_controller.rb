@@ -12,7 +12,7 @@ class AboutController < ApplicationController
     @alums_by_year = []
     years = Alum.pluck(:grad_year).uniq.sort{|a,b| b <=> a}
     years.each do |year|
-      @alums_by_year << Alum.where(:grad_year=> year).where("position_held is NOT NULL").order("position_order DESC")
+      @alums_by_year << Alum.where(:grad_year=> year).where("position_held is NOT NULL").order("position_order ASC")
     end
     @alums_by_year
   end
