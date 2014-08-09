@@ -1,6 +1,10 @@
 class StocksController < ApplicationController
   def index
-    @stocks = StockQuote::Stock.quote(Stock.all.pluck :ticker)
+    @stocks = []
+    Stock.all.pluck(:ticker).each do |stock|
+      info = StockQuote::Stock(stock)
+      @stocks << info if info.response_code == 200
+    end
   end
 
   def graph
