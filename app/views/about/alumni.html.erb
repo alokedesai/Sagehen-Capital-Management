@@ -1,7 +1,11 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/blue', :title=>"About" %>
 
-<div class="container mtb">
+<div class="container">
+  <h2>Alumni</h2>
+  <div>
+    Sagehen Capital Management is proud to have many alumni working at the top of many fields from investment banking to management consulting, from portfolio management to economic think tanks.
+  </div>
   <% @alums_by_year.each do |alums| %>
     <h2><%= alums.first.grad_year %></h2>
 
