@@ -7,3 +7,7 @@ $grid-float-breakpoint: 1000px;
 .alert-notice, {
   @extend .alert-success;
 }
+
+.container{
+  margin-bottom: 10px;
+}
