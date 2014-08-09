@@ -34,7 +34,7 @@ Scm::Application.routes.draw do
 
   # about
   scope "/about" do
-    get "/" => "about#index"
+    get "overview" => "about#index"
     get "mission" => "about#mission"
     get "history" => "about#history"
     get "alumni" => "about#alumni"
