@@ -37,6 +37,7 @@ Scm::Application.routes.draw do
     get "/" => "about#index"
     get "mission" => "about#mission"
     get "history" => "about#history"
+    get "alumni" => "about#alumni"
     get "investment_philosophy" => "about#investment_philosophy"
   end
 

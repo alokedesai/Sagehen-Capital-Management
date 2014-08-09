@@ -1,0 +1,25 @@
+<%= render 'layouts/header' %>
+<%= render 'layouts/blue', :title=>"About" %>
+
+<div class="container mtb">
+  <% @alums_by_year.each do |alums| %>
+    <h2><%= alums.first.grad_year %></h2>
+
+    <% alums.each do |alum| %>
+      <% if alum.linkedin_url.present? %>
+        <h4><%= link_to alum.name, alum.linkedin_url %></h4>
+      <% else %>
+        <h4><%= alum.name %></h4>
+      <% end %>
+
+      <div>
+        <%= alum.title %>
+      </div>
+
+      <% if alum.company.present? %>
+      <div>Currently works as <%= alum.job_title %> at <%= alum.company %> in <%= alum.location %></div>
+      <% end %>
+
+    <% end %>
+  <% end %>
+</div>
