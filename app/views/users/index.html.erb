@@ -23,19 +23,20 @@
  					<i class="fa fa-calendar"></i>
  					<h4>Events</h4>
  					<p>We hold many events, including the Claremont Finance Conference, to give students a glimpse of a career in finance.</p>
- 					<p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+ 					<p><br/><%= link_to "Events", events_path, :class=> "btn btn-theme" %></p>
  				</div>
  				<div class="col-md-4">
  					<i class="fa fa-dollar"></i>
  					<h4>Portfolio</h4>
- 					<p>The SCM portfolio consists of both small and large cap companies spanning many different industries.</p>
- 					<p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+ 					<p>The SCM portfolio consists of both small and large cap companies spanning many different industries and countries.</p>
+ 					<p><br/><%= link_to "Portfolio", stocks_path, :class=> "btn btn-theme" %></p>
  				</div>
  				<div class="col-md-4">
  					<i class="fa fa-file-text-o"></i>
  					<h4>Recent Presentations</h4>
  					<p>Students pitch ideas every Sunday to the entire club. You can view the deck of any presentation on the market insights page.</p>
- 					<p><br/><a href="#" class="btn btn-theme">More Info</a></p>
+ 					<p><br/>
+						<%= link_to "Presentations", posts_path, :class=> "btn btn-theme" %></p>
  				</div>
 	 		</div>
 	 	</div><! --/container -->
