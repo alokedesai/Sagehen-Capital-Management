@@ -26,6 +26,6 @@ class Alum < ActiveRecord::Base
 
   def add_http_to_linkedin
     return unless linkedin_url.start_with? "http"
-    linkedin_url.prepent "http://"
+    linkedin_url.prepend "http://"
   end
 end
