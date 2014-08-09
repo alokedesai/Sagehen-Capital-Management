@@ -16,7 +16,7 @@ class Alum < ActiveRecord::Base
     when "Chief Executive Officer"
       self.position_order = 1
     when "Chief Operating Officer"
-      self.postion_order = 2
+      self.position_order = 2
     when "Chief Investment Officer"
       self.position_order = 3
     else
