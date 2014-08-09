@@ -28,7 +28,7 @@
         $<%= stock.last_trade_price_only %>
       </td>
       <td>
-        <% if stock.changein_percent.start_with? "+" %>
+        <% if stock.changein_percent.starts_with? "+" %>
           <span class="positive">
             <%= stock.changein_percent %>
           </span>
