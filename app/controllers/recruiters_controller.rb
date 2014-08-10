@@ -16,6 +16,6 @@ class RecruitersController < ApplicationController
 
   private
   def alum_params
-    params.require(:recruiter).permit(:name, :email, :company)
+    params.require(:recruiter).permit(:name, :email, :company, :message)
   end
 end

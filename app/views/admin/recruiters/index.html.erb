@@ -1,0 +1,21 @@
+<%= render 'admin/layouts/header' %>
+<div class="container mtb">
+  <h2>Recruiter Contacts</h2>
+  <% @recruiters.each do |recruiter| %>
+    <h4> <%= recruiter.name %> </h4>
+    <div>
+      <strong>Email:</strong> <%= recruiter.email %>
+    </div>
+    <div>
+      <strong>Company:</strong> <%= recruiter.company %>
+    </div>
+    <div>
+      <div>
+        <strong>Message:</strong>
+      </div>
+      <div>
+        <%= recruiter.message %>
+      </div>
+    </div>
+  <% end %>
+</div>

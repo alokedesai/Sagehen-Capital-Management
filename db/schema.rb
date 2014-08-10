@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806044342) do
+ActiveRecord::Schema.define(version: 20140810063346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 20140806044342) do
     t.string   "name"
     t.string   "email"
     t.string   "company"
-    t.string   "interest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "message"
   end
 
   create_table "remove_attributes_from_presentations", force: true do |t|

@@ -30,6 +30,7 @@ Scm::Application.routes.draw do
       end
     end
     resources :current_managers
+    resources :recruiters, only: [:index]
   end
 
   # about
