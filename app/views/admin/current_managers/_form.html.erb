@@ -17,7 +17,11 @@
   <div class="form-group">
     <%= f.label "Vice President?" %>
     <%= f.check_box :is_vp, :class=> "form-control" %>
+  </div>
 
+  <div class="form-group">
+    <%= f.label "Executive" %>
+    <%= f.check_box :executive, :class => "form-control" %>
   </div>
 
   <%= f.submit :class=> "btn btn-theme" %>

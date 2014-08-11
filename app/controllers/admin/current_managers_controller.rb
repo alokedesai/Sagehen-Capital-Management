@@ -42,10 +42,12 @@ class Admin::CurrentManagersController < Admin::AdminController
   def destroy
     current_manager = CurrentManager.find params[:id]
     current_manager.destroy
+
+    redirect_to :back
   end
 
   private
   def current_manager_params
-    params.require(:current_manager).permit(:title, :is_vp, :user_id, :position_order)
+    params.require(:current_manager).permit(:title, :is_vp, :user_id, :position_order, :executive)
   end
 end
