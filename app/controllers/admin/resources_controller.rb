@@ -39,6 +39,7 @@ class Admin::ResourcesController < Admin::AdminController
     resource.destroy
     redirect_to admin_resources_path
   end
+
   private
   def resource_params
     params.require(:resource).permit(:title, :url)

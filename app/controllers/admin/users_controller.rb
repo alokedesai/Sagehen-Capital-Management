@@ -31,6 +31,7 @@ class Admin::UsersController < ApplicationController
     flash[:notice] = "User successfully added"
     redirect_to approve_admin_users_path
   end
+
   private
   def user_params
     params.require(:user).permit(:name, :major, :grad_year, :description)

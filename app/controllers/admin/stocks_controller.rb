@@ -1,5 +1,4 @@
 class Admin::StocksController < Admin::AdminController
-
   def index
     @stocks = Stock.all.order("ticker ASC")
   end
