@@ -9,6 +9,11 @@ class Alum < ActiveRecord::Base
     errors.add("You must have both a position and position type") if position_held.present? ^ position_type.present?
   end
 
+  POSITIONS = ["Chief Executive Officer", "Chief Operating Officer", "Chief Investment Officer",
+  "Chief Technology Officer", "Director of Equities", "Director of Global Macro",
+  "Director of Market Neutral", "Head of Emerging Markets", "Head of Developed Markets",
+  "Head of Research"]
+
   private
   def set_position_order
     return unless position_held.present?

@@ -11,7 +11,7 @@
 
   <div class="form-group">
     <%= f.label "Position Held" %>
-    <%= f.select :position_held, [["Chief Executive Officer", "Chief Executive Officer"], ["Chief Investment Officer", "Chief Investment Officer"], ["Chief Operating Officer", "Chief Operating Officer"], ["Chief Technology Officer", "Chief Technology Officer"]], {:include_blank => true}, {:class=>"form-control"} %>
+    <%= f.select :position_held, Alum::POSITIONS.map{|n| [n,n]}, {:include_blank => true}, {:class=>"form-control"} %>
   </div>
 
   <div class="form-group">
