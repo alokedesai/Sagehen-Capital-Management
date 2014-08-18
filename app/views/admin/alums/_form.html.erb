@@ -15,8 +15,8 @@
   </div>
 
   <div class="form-group">
-    <%= f.label "Position Type" %>
-    <%= f.select :position_type, [["Group Leader", "Group Leader"], ["Executive Leader", "Executive Leader"]], {:include_blank => true}, {:class=>"form-control"} %>
+    <%= f.label "Is this alum an executive?" %>
+    <%= f.check_box :executive, {:class=>"form-control"} %>
   </div>
 
   <div class="form-group">

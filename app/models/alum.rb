@@ -4,11 +4,6 @@ class Alum < ActiveRecord::Base
   before_save :set_position_order
   before_save :add_http_to_linkedin
 
-  validate :position_if_position_type
-  def position_if_position_type
-    errors.add("You must have both a position and position type") if position_held.present? ^ position_type.present?
-  end
-
   POSITIONS = ["Chief Executive Officer", "Chief Operating Officer", "Chief Investment Officer",
   "Chief Technology Officer", "Director of Equities", "Director of Global Macro",
   "Director of Market Neutral", "Head of Emerging Markets", "Head of Developed Markets",
