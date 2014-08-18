@@ -11,6 +11,8 @@ class Admin::AlumsController < Admin::AdminController
 
   def new
     @alum = Alum.new
+    puts "this is the alum"
+    puts @alum.executive
   end
 
   def create
@@ -51,6 +53,6 @@ class Admin::AlumsController < Admin::AdminController
 
   private
   def alum_params
-    params.require(:alum).permit(:name, :linkedin_url, :grad_year, :position_held, :position_type, :job_title, :company, :location, :bio)
+    params.require(:alum).permit(:name, :linkedin_url, :grad_year, :position_held, :position_type, :job_title, :company, :location, :bio, :executive)
   end
 end
