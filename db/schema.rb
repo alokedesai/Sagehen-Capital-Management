@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818014643) do
+ActiveRecord::Schema.define(version: 20140818050452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140818014643) do
     t.string   "position_type"
     t.integer  "position_order"
     t.boolean  "current_management", default: true
-    t.boolean  "executive",          default: true
+    t.boolean  "executive"
   end
 
   create_table "ckeditor_assets", force: true do |t|
