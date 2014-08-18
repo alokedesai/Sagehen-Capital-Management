@@ -3,9 +3,11 @@ class Alum < ActiveRecord::Base
   validates :grad_year, presence: true
   before_save :set_position_order
   before_save :add_http_to_linkedin
+  before_save :set_executive
 
-  POSITIONS = ["Chief Executive Officer", "Chief Operating Officer", "Chief Investment Officer",
-  "Chief Technology Officer", "Director of Equities", "Director of Global Macro",
+  EXECUTIVES = ["Chief Executive Officer", "Chief Operating Officer", "Chief Investment Officer",
+  "Chief Technology Officer"]
+  GROUP_LEADERS = ["Director of Equities", "Director of Global Macro",
   "Director of Market Neutral", "Head of Emerging Markets", "Head of Developed Markets",
   "Head of Research"]
 
@@ -27,5 +29,11 @@ class Alum < ActiveRecord::Base
   def add_http_to_linkedin
     return unless linkedin_url.start_with? "http"
     linkedin_url.prepend "http://"
+  end
+
+  def set_executive
+    return unless position_held_changed?
+    self.executive = position_held.in? EXECUTIVES
+    true
   end
 end
