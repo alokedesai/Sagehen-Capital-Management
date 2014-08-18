@@ -11,8 +11,6 @@ class Admin::AlumsController < Admin::AdminController
 
   def new
     @alum = Alum.new
-    puts "this is the alum"
-    puts @alum.executive
   end
 
   def create
