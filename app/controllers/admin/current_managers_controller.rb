@@ -1,4 +1,4 @@
-class Admin::CurrentManagersController < Admin::AdminController
+class Admin::CurrentManagersController < Admin::SpecialAccessController
   def index
     @current_managers = CurrentManager.all.order "position_order DESC"
   end
