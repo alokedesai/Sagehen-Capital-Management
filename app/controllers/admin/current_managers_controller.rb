@@ -11,6 +11,10 @@ class Admin::CurrentManagersController < Admin::AdminController
     @current_manager = CurrentManager.new current_manager_params
     if @current_manager.valid?
       @current_manager.save
+
+      #give the corresponding user special access to the site
+      @current_manager.user.update_attributes :special_access, true
+
       redirect_to admin_current_managers_path
     else
       flash[:error] = @current_manager.full_messages.join(", ")
@@ -41,8 +45,11 @@ class Admin::CurrentManagersController < Admin::AdminController
 
   def destroy
     current_manager = CurrentManager.find params[:id]
-    current_manager.destroy
 
+    # remove special access from the corresponding user
+    current_manager.user.update_attribute :special_access, false
+
+    current_manager.destroy
     redirect_to :back
   end
 
