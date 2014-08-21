@@ -6,7 +6,7 @@
 
   <div class="form-group">
     <%= f.label "Title" %>
-    <%= f.text_field :title, :class=> "form-control" %>
+     <%= f.select :position_held, CurrentManager::EXECUTIVES.map{|n| [n,n]}.concat(CurrentManager::GROUP_LEADERS.map{|n| [n,n]}), {}, {:class=>"form-control"} %>
   </div>
 
   <div class="form-group">

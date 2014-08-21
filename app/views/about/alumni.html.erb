@@ -24,7 +24,7 @@
       <div>Currently works as <%= alum.job_title %> at <%= alum.company %> in <%= alum.location %></div>
       <% end %>
 
-      Bio: <%= alum.bio if alum.bio.present? %>
+      <%= "Bio: #{alum.bio}" if alum.bio.present? %>
     <% end %>
   <% end %>
 </div>

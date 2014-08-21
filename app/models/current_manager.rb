@@ -5,6 +5,13 @@ class CurrentManager < ActiveRecord::Base
   validates :user_id, presence: true
 
   before_save :set_position_order
+  before_save :set_executive
+
+  EXECUTIVES = ["Chief Executive Officer", "Chief Operating Officer", "Chief Investment Officer",
+  "Chief Technology Officer"]
+  GROUP_LEADERS = ["Director of Equities", "Director of Global Macro",
+  "Director of Market Neutral", "Head of Emerging Markets", "Head of Developed Markets",
+  "Head of Research"]
 
   private
   def set_position_order
@@ -21,4 +28,9 @@ class CurrentManager < ActiveRecord::Base
     end
   end
 
+  def set_executive
+    return unless position_held_changed?
+    self.executive = position_held.in? EXECUTIVES
+    true
+  end
 end
