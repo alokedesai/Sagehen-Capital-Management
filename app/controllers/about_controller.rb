@@ -18,6 +18,6 @@ class AboutController < ApplicationController
   end
 
   def current_management
-    @managers = CurrentManager.order("position_order ASC", "executive DESC", "is_vp ASC")
+    @managers = CurrentManager.order("executive DESC, position_order ASC, is_vp DESC")
   end
 end
