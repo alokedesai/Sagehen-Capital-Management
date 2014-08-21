@@ -15,7 +15,7 @@ class CurrentManager < ActiveRecord::Base
 
   private
   def set_position_order
-    return unless position_order.present? and position_order_changed?
+    return unless title_changed?
     case position_order
     when "Chief Executive Officer"
       self.position_order = 1
@@ -29,8 +29,8 @@ class CurrentManager < ActiveRecord::Base
   end
 
   def set_executive
-    return unless position_held_changed?
-    self.executive = position_held.in? EXECUTIVES
+    return unless title_changed?
+    self.executive = title.in? EXECUTIVES
     true
   end
 end

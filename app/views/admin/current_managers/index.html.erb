@@ -18,9 +18,6 @@
           Vice President?
         </th>
         <th>
-          Position
-        </th>
-        <th>
           Actions
         </th>
       </tr>
@@ -36,9 +33,6 @@
           </td>
           <td>
             <%= manager.is_vp ? "Yes" : "No" %>
-          </td>
-          <td>
-            <%= manager.position_order %>
           </td>
           <td>
             <%= link_to "Update", edit_admin_current_manager_path(manager), :class=> "btn btn-default" %>
