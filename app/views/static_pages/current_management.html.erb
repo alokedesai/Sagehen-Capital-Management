@@ -1,0 +1,26 @@
+<%= render 'layouts/header' %>
+<%= render 'layouts/blue', :title=>"About" %>
+
+<div class="container">
+  <h2>Current Management</h2>
+  <div>
+    Managers at SCM have acquired a deep understanding of the financial world and have demonstrated the necessary leadership skills to successfully run one of Pomona’s largest student organizations with over $1 million under active management. Many of our previous leaders have gone on to successful careers in finance, management consulting, and much more.
+  </div>
+  <% @managers.each do |manager| %>
+
+    <% if manager.user.linkedin_url.present? %>
+      <h4><%= link_to manager.user.name, manager.user.linkedin_url %></h4>
+    <% else %>
+      <h4><%= manager.user.name %></h4>
+    <% end %>
+
+    <div>
+      <strong><%= manager.title %></strong>
+    </div>
+
+    <div>
+      <%= manager.user.description %>
+    </div>
+
+  <% end %>
+</div>

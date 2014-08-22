@@ -1,0 +1,30 @@
+<%= render 'layouts/header' %>
+<%= render 'layouts/blue', :title=>"About" %>
+
+<div class="container">
+  <h2>Past Leaders</h2>
+  <div>
+    Sagehen Capital Management is proud to have many alumni working at the top of many fields from investment banking to management consulting, from portfolio management to economic think tanks.
+  </div>
+  <% @alums_by_year.each do |alums| %>
+    <h2><%= alums.first.grad_year %></h2>
+
+    <% alums.each do |alum| %>
+      <% if alum.linkedin_url.present? %>
+        <h4><%= link_to alum.name, alum.linkedin_url %></h4>
+      <% else %>
+        <h4><%= alum.name %></h4>
+      <% end %>
+
+      <div>
+        <strong><%= alum.position_held %></strong>
+      </div>
+
+      <% if alum.company.present? %>
+      <div>Currently works as <%= alum.job_title %> at <%= alum.company %> in <%= alum.location %></div>
+      <% end %>
+
+      <%= "Bio: #{alum.bio}" if alum.bio.present? %>
+    <% end %>
+  <% end %>
+</div>

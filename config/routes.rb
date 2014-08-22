@@ -10,7 +10,8 @@ Scm::Application.routes.draw do
       get "portfolio_data"
     end
   end
-  resources :events, only: [:index]
+  
+  
   # linkedin authentication
   get 'auth/:provider/callback' => 'sessions#create'
   get 'auth/failure' => redirect('/')
@@ -33,15 +34,16 @@ Scm::Application.routes.draw do
     resources :recruiters, only: [:index]
   end
 
-  # about
+  # static pages
   scope "/about" do
-    get "overview" => "about#index"
-    get "mission" => "about#mission"
-    get "history" => "about#history"
-    get "alumni" => "about#alumni"
-    get "investment_philosophy" => "about#investment_philosophy"
-    get "current_management" => "about#current_management"
+    get "overview" => "static_pages#overview"
+    get "mission" => "static_pages#mission"
+    get "history" => "static_pages#history"
+    get "alumni" => "static_pages#alumni"
+    get "investment_philosophy" => "static_pages#investment_philosophy"
+    get "current_management" => "static_pages#current_management"
   end
+  get "events" => "static_pages#events"
 
   resources :resources, only: [:index]
   resources :recruiters, only: [:new, :create]
