@@ -22,7 +22,7 @@ class Admin::UsersController < ApplicationController
 
   def approve
     # approved could be false or nil
-    @users = User.where.not(approved: true)
+    @users = User.where("approved IS NOT true")
   end
 
   def approve_user
