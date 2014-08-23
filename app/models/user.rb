@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
     user.image_url = auth["info"]["image"]
     user.linkedin_url = auth["info"]["urls"]["public_profile"]
     education = auth["extra"]["raw_info"]["educations"]
+    # verify that the user has an education
     if education && education["values"]
       education["values"].each do |school|
         if "Pomona".in? school["schoolName"]
