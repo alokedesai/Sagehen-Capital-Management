@@ -13,7 +13,7 @@ class Admin::CurrentManagersController < Admin::SpecialAccessController
       @current_manager.save
 
       #give the corresponding user special access to the site
-      @current_manager.user.update_attributes :special_access, true
+      @current_manager.user.update_attribute :special_access, true
 
       redirect_to admin_current_managers_path
     else
