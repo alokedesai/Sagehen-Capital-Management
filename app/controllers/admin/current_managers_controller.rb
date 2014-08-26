@@ -45,10 +45,6 @@ class Admin::CurrentManagersController < Admin::SpecialAccessController
 
   def destroy
     current_manager = CurrentManager.find params[:id]
-
-    # remove special access from the corresponding user
-    current_manager.user.update_attribute :special_access, false
-
     current_manager.destroy
     redirect_to :back
   end
