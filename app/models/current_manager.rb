@@ -16,7 +16,7 @@ class CurrentManager < ActiveRecord::Base
   private
   def set_position_order
     return unless title_changed?
-    case position_order
+    case title
     when "Chief Executive Officer"
       self.position_order = 1
     when "Chief Operating Officer"
