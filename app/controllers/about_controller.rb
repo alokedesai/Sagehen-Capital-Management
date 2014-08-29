@@ -16,8 +16,4 @@ class AboutController < ApplicationController
     end
     @alums_by_year
   end
-
-  def current_management
-    @managers = CurrentManager.order("executive DESC, position_order ASC, title ASC, is_vp ASC")
-  end
 end

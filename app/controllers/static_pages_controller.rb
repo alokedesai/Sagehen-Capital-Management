@@ -18,6 +18,6 @@ class StaticPagesController < ApplicationController
   end
 
   def current_management
-    @managers = CurrentManager.order("executive DESC, position_order ASC, is_vp DESC")
+    @managers = CurrentManager.order("executive DESC, position_order ASC, title ASC, is_vp ASC")
   end
 end
