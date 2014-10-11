@@ -10,8 +10,8 @@ Scm::Application.routes.draw do
       get "portfolio_data"
     end
   end
-  
-  
+
+
   # linkedin authentication
   get 'auth/:provider/callback' => 'sessions#create'
   get 'auth/failure' => redirect('/')
@@ -24,12 +24,7 @@ Scm::Application.routes.draw do
     resources :stocks
     resources :resources
     resources :posts
-    resources :users, only: [:show, :edit, :update, :destroy] do
-      collection do
-        get :approve
-        put :approve_user
-      end
-    end
+    resources :users, only: [:show, :edit, :update, :destroy]
     resources :current_managers
     resources :recruiters, only: [:index]
   end

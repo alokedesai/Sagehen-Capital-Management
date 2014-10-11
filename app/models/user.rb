@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     return user if user.present?
     user = User.new
     user.name = auth["info"]["name"]
-    user.linkedin_id = auth["extra"]["raw_info"]["id"] 
+    user.linkedin_id = auth["extra"]["raw_info"]["id"]
     user.image_url = auth["info"]["image"]
     user.linkedin_url = auth["info"]["urls"]["public_profile"]
     education = auth["extra"]["raw_info"]["educations"]
@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
         end
       end
     end
+
+    # automatically grant approval for now (this was confusing for some users so i'm temporarily getting rid of it
+    user.approved = true
     user.save!
     user
   end
