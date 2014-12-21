@@ -5,7 +5,7 @@ require "json"
 portfolio_prices = []
 Stock.pluck(:ticker).each do |ticker|
   begin
-    portfolio_prices << StockQuote::Stock.json_quote(ticker, 3.months.ago, Date.today, ['Date', 'Close', 'Symbol'])
+    portfolio_prices << StockQuote::Stock.json_quote(ticker, 6.months.ago, Date.today, ['Date', 'Close', 'Symbol'])
 
   # silently fail if the ticker can't be found
   rescue StockQuote::NoDataForStockError
