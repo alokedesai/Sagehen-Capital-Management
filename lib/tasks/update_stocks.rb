@@ -37,9 +37,6 @@ db_name = uri[%r{/([^/\?]+)(\?|$)}, 1]
 
 db = client.db(db_name)
 
-# First we'll add a few songs. Nothing is required to create the songs 
-# collection; it is created automatically when we insert.
-
 stocks = db.collection("portfolio")
 
 stocks.remove
