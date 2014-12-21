@@ -54,3 +54,8 @@ gem 'paperclip'
 gem 'aws-sdk'
 
 gem "font-awesome-rails"
+
+# dependencies for cron job that fetches stock data daily
+gem 'bson_ext'
+gem 'mongo'
+gem 'json'

@@ -31,6 +31,9 @@ GEM
       nokogiri (>= 1.4.4)
     bootstrap-sass (3.1.0.2)
       sass (~> 3.2)
+    bson (1.11.1)
+    bson_ext (1.11.1)
+      bson (~> 1.11.1)
     builder (3.1.4)
     ckeditor (4.1.0)
       mime-types
@@ -71,6 +74,8 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (4.7.5)
+    mongo (1.11.1)
+      bson (= 1.11.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     netrc (0.7.7)
@@ -165,12 +170,15 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   bootstrap-sass
+  bson_ext
   ckeditor
   coffee-rails (~> 4.0.0)
   font-awesome-rails
   httparty
   jbuilder (~> 1.2)
   jquery-rails
+  json
+  mongo
   omniauth
   omniauth-linkedin
   paperclip
