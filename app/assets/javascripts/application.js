@@ -15,6 +15,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree ./solid
-//= require_tree .
 //= require_tree ./highstock
 //= require ckeditor/init
+//= require_tree .
