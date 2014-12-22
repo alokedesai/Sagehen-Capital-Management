@@ -59,3 +59,6 @@ gem "font-awesome-rails"
 gem 'bson_ext'
 gem 'mongo'
 gem 'json'
+
+# for pagination
+gem 'will_paginate', '~> 3.0.6'

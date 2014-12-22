@@ -1,6 +1,7 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/blue', :title=> "Market Insights" %>
 <div class="container">
+
   <% @posts.each do |post| %>
     <h2><%= link_to post.title, post %></h2>
     Posted on <%= post.readable_created_at %> by <%= post.user.name %>
@@ -8,4 +9,5 @@
       <%== post.content %>
     </p>
   <% end %>
+  <%= will_paginate @posts %>
 </div>
