@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validate :approve_user
+
   def self.find_or_create_from_auth(auth)
     user = User.find_by_linkedin_id auth["extra"]["raw_info"]["id"]
     return user if user.present?
@@ -14,14 +16,14 @@ class User < ActiveRecord::Base
         if "Pomona".in? school["schoolName"]
           user.major = school["fieldOfStudy"]
           user.grad_year = school["endDate"]["year"]
+          user.approved = true
         end
       end
     end
-
-    # automatically grant approval for now (this was confusing for some users so i'm temporarily getting rid of it
-    user.approved = true
-    user.save!
     user
   end
 
+  def approve_user
+    errors.add(:base, "You must attend the Claremont Colleges to use this site") unless approved.present?
+  end
 end
