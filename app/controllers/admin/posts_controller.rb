@@ -49,6 +49,6 @@ class Admin::PostsController < Admin::AdminController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :type)
+    params.require(:post).permit(:title, :content, :type, :slideshare_url)
   end
 end

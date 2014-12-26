@@ -11,6 +11,7 @@
       <h2><%= link_to post.title, admin_post_path(post) %></h2>
       Posted on <%= post.readable_created_at %> by <%= post.user.name %>
       <div>
+        <%== post.slideshare_html %>
         <%== post.content %>
       </div>
         <%= link_to "Edit" , edit_admin_post_path(post), :class=> "btn btn-default" %>
